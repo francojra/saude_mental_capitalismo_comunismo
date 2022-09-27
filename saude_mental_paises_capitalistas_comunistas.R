@@ -65,10 +65,25 @@ ggplot(sm1, aes(x = fct_reorder(Entity, media), y = media, fill = Entity)) +
   scale_fill_manual(values = c("#88CCEE", "#CC6677", "#DDCC77",
                                "#117733", "#332288", "#AA4499")) +
   scale_y_continuous(expand = expansion(mult = c(0,0))) +
+  scale_x_discrete(labels = c("Japão", "Coréia do Norte", "China",
+                              "Alemanha", "Cuba", "Estados Unidos")) +
   labs(x = "Países", y = "Porcentagem média da população 
        com transtornos mentais") +
   theme_ipsum(axis_title_size = 16,
               axis_text_size = 14) +
   theme(legend.position = "none",
         axis.text = element_text(color = "black"))
-  
+
+ggplot(sm2, aes(x = Year, y = por_saude_ment, 
+                group = Entity, color = Entity)) +
+  geom_point() +
+  geom_line() +
+  scale_color_manual(values = c("#88CCEE", "#CC6677", "#DDCC77",
+                               "#117733", "#332288", "#AA4499"),
+                     labels = c("China", "Cuba", "Alemanha",
+                              "Japão", "Coréia do Norte", "Estados Unidos")) +
+  labs(x = "Tempo (anos)", y = "Porcentagem média da população 
+       com transtornos mentais", color = "Países") +
+  theme_ipsum(axis_title_size = 16,
+              axis_text_size = 14) +
+  theme(axis.text = element_text(color = "black"))
