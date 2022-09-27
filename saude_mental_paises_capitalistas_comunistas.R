@@ -32,3 +32,28 @@ library(hrbrthemes)
 sm <- read.csv("share-with-mental-and-substance-disorders.csv")
 view(sm)
 names(sm)
+
+# Manipular dados --------------------------------------------------------------------------------------------------------------------------
+
+sm <- sm %>%
+  select(-Code) %>%
+  rename(por_saude_ment = Prevalence...Mental.disorders...Sex..Both...Age..Age.standardized..Percent.) %>%
+  view()
+
+sm1 <- sm %>%
+  filter(Entity %in% c("United States", "Japan", "Germany",
+                       "China", "Cuba", "North Korea")) %>%
+  group_by(Entity) %>%
+  summarise(media = mean(por_saude_ment),
+            n = n(), sd = sd(por_saude_ment),
+            se = sd/sqrt(n)) %>%
+  view()
+
+sm2 <- sm %>%
+  filter(Entity %in% c("United States", "Japan", "Germany",
+                       "China", "Cuba", "North Korea")) %>%
+  view()
+
+# Gráficos ---------------------------------------------------------------------------------------------------------------------------------
+
+  
