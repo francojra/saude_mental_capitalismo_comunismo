@@ -1,4 +1,4 @@
-# Saúde mental em países capitalistas e comunistas
+# Saúde mental em países democratas e autocratas
 
 ### Autoria do script: Jeanne Franco
 ### Data 26/09/22
